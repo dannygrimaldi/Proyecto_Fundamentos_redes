@@ -7,13 +7,13 @@ const TypingTitle = () => {
 
   const handleInit = (typewriter) => {
     typewriter
-      .typeString('App')
+      .typeString('UAM')
       .pauseFor(1000)
       .deleteAll()
-      .typeString('Web')
+      .typeString('iChat')
       .pauseFor(1000)
       .deleteAll()
-      .typeString('Chat')
+      .typeString('UAM iChat')
       .start()
   };
   const handleComplete = () => {

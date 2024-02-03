@@ -53,8 +53,13 @@ function Chat() {
 
   return (
     <div className="flex h-screen">
-      <div className="m-auto bg-gray-200 p-8 rounded-lg w-100 z-0"> {/* Corregir la clase de fondo con opacidad */}
-        <h2 className="text-lg mb-4">{isConnected ? 'CONECTADO' : 'NO CONECTADO'}</h2>
+      <div className="m-auto bg-gray-200 p-4 rounded-lg w-100">
+       
+
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <span className={`flex w-3 h-3 me-3 m-2 ${isConnected ? 'bg-green-400' : 'bg-red-500'} rounded-full`}></span>
+      <h2 className="text-lg md-4">{isConnected ? 'Conectado' : 'Sin Conexión'}</h2>
+      </div>
         <UlMensajes className="overflow-auto h-64  " ref={ulMensajesRef}>
           {mensajes.map((mensaje, index) => (
             <LiMensaje key={index}>{mensaje.usuario}: {mensaje.mensaje}</LiMensaje>
