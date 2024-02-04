@@ -53,14 +53,14 @@ function Chat() {
 
   return (
     <div className="flex h-screen">
-      <div className="m-auto bg-gray-200 p-4 rounded-lg w-100">
+      <div className="m-auto bg-gray-500 p-4 rounded-lg w-100 bg-opacity-10">
        
 
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-      <span className={`flex w-3 h-3 me-3 m-2 ${isConnected ? 'bg-green-400' : 'bg-red-500'} rounded-full`}></span>
+      <div style={{ display: 'flex', alignItems: 'center'  }}>
+      <span className={`flex w-2 h-2 me-3 m-2  ${isConnected ? 'bg-green-400' : 'bg-red-500'} rounded-full`}></span>
       <h2 className="text-lg md-4">{isConnected ? 'Conectado' : 'Sin Conexión'}</h2>
       </div>
-        <UlMensajes className="overflow-auto h-64  " ref={ulMensajesRef}>
+        <UlMensajes className="overflow-auto w-96  h-64 z-10 bg-opacity-10" ref={ulMensajesRef}>
           {mensajes.map((mensaje, index) => (
             <LiMensaje key={index}>{mensaje.usuario}: {mensaje.mensaje}</LiMensaje>
           ))}
@@ -71,7 +71,7 @@ function Chat() {
             value={nuevoMensaje}
             onChange={e => setNuevoMensaje(e.target.value)}
             onKeyPress={handleKeyPress} // Manejar la tecla Enter
-            className="flex-1 p-2 rounded-l-md"
+            className="flex-1 p-2 rounded-l-md "
           />
           <Button onClick={enviarMensaje} >Enviar</Button>
         </div>

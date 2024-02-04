@@ -9,9 +9,13 @@ function Home() {
             <Header />
             <Layout>
                 <main className="dark">
-                    <div className="relative max-w-7xl mx-auto z-10">
-                        {/* Contenido principal de tu página de inicio */}
-                        <Chat />
+                    <div className="relative max-w-7xl mx-auto z-1">
+                        <div className="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50 overflow-hidden">
+                            <div className="bg-gray p-8 rounded-lg w-100 h-130 overflow-y-auto bg-opacity-50">
+
+                                <Chat />
+                            </div>
+                        </div>
                     </div>
                 </main>
             </Layout>
