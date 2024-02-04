@@ -4,7 +4,7 @@ import { LiMensaje, UlMensajes } from './ui-components';
 import {Button} from "@nextui-org/react";
 
 
-const socket = io('http://localhost:3000');
+const socket = io('http://192.168.159.106:3000');
 
 function Chat() {
   const [isConnected, setIsConnected] = useState(false);
