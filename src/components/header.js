@@ -1,10 +1,10 @@
-import Dropdown from '../components/dropdown';
-import { useTheme } from 'next-themes';
+/* import Dropdown from '../components/dropdown';
+ */import { useTheme } from 'next-themes';
 import Logo from './Logo';
 import React, { useEffect, useState } from 'react';
 import '../styles/index.css';
 import TypingTitle from './TypingTitle';  // Asegúrate de importar TypingTitle
-
+import { ThemeSwitcher } from '../components/ThemeSwitcher';
 
 
 
@@ -38,7 +38,7 @@ function Header() {
     <header
     className={`top-0 left-0 right-0  ${
       theme === 'dark'
-        ? 'bg-gradient-to-r from-gray-800 via-blue-800 to-gray-800'
+        ? 'bg-gradient-to-r from-gray-600 via-gray-900 to-gray-600'
         : 'bg-white'
     } transition duration-400 text-white py-4 px-6 flex justify-between items-center fixed backdrop-blur-xl bg-white/30`}
     
@@ -48,7 +48,8 @@ function Header() {
       </div>
       <div className={`text-2xl font-bold ${theme === 'dark' ? '' : 'text-black'}`}><TypingTitle /></div>
       <div className="relative inline-block text-left">
-        <Dropdown />
+      <ThemeSwitcher/>
+        {/* <Dropdown /> */}
       </div>
     </header>
   );

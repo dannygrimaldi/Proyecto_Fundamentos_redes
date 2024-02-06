@@ -18,7 +18,7 @@ export function ThemeSwitcher() {
 
     <div>
   {theme === "light" ? (
-    <button onClick={() => setTheme("dark")} className="flex flex-wrap gap-4 items-center">
+    <button onClick={() => setTheme("dark")} className="flex flex-wrap gap-4 items-center text-black">
       <MoonIcon className="mr-10" /> Dark
     </button>
   ) : (

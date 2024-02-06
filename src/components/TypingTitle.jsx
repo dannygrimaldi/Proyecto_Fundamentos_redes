@@ -3,7 +3,7 @@ import Typewriter from 'typewriter-effect';
 import '../styles/index.css';
 
 const TypingTitle = () => {
-  const [showCursor, setShowCursor] = useState(true);
+  const [setShowCursor] = useState(true);
 
   const handleInit = (typewriter) => {
     typewriter
