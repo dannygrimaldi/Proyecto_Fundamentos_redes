@@ -2,11 +2,13 @@ import { io } from 'socket.io-client';
 import { useState, useEffect, useRef } from 'react';
 import { LiMensaje, UlMensajes } from './ui-components';
 import {Button} from "@nextui-org/react";
+import { useTheme } from 'next-themes';
 
 
-const socket = io('http://192.168.159.106:3000');
+const socket = io('http://192.168.100.3:3000');
 
 function Chat() {
+  const { theme } = useTheme();
   const [isConnected, setIsConnected] = useState(false);
   const [nuevoMensaje, setNuevoMensaje] = useState('');
   const [mensajes, setMensajes] = useState([]);
@@ -60,9 +62,9 @@ function Chat() {
       <span className={`flex w-2 h-2 me-3 m-2  ${isConnected ? 'bg-green-400' : 'bg-red-500'} rounded-full`}></span>
       <h2 className="text-lg md-4">{isConnected ? 'Conectado' : 'Sin Conexión'}</h2>
       </div>
-        <UlMensajes className="overflow-auto w-96  h-64 z-10 bg-opacity-10" ref={ulMensajesRef}>
+        <UlMensajes className="overflow-auto w-96  h-64" ref={ulMensajesRef} theme={theme}>
           {mensajes.map((mensaje, index) => (
-            <LiMensaje key={index}>{mensaje.usuario}: {mensaje.mensaje}</LiMensaje>
+            <LiMensaje key={index} theme={theme}>{mensaje.usuario}: {mensaje.mensaje}</LiMensaje>
           ))}
         </UlMensajes>
         <div className="flex mt-4">
@@ -71,7 +73,7 @@ function Chat() {
             value={nuevoMensaje}
             onChange={e => setNuevoMensaje(e.target.value)}
             onKeyPress={handleKeyPress} // Manejar la tecla Enter
-            className="flex-1 p-2 rounded-l-md "
+            className={`flex-1 p-2 rounded-l-md ${theme === 'dark' ? 'bg-gray-800' : ''}`} 
           />
           <Button onClick={enviarMensaje} >Enviar</Button>
         </div>
